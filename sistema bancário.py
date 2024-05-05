@@ -50,7 +50,7 @@ def sacar(saldo, extrato, limite, numero_saques, LIMITE_SAQUE):
         print("Operação falhou. O valor informado é inválido")
     return saldo, extrato
 
-def extrato(saldo, extrato):
+def mostrar_extrato(saldo, extrato):
     print("\n ========= EXTRATO ========")
     print("Não houve movimentações bancárias" if not extrato else extrato)
     print(f"\nSaldo: R$ {saldo:.2f}")
@@ -68,7 +68,6 @@ def novo_usuario(usuario):
 
     data_nascimento = input("Informe sua data de nascimento:")
     endereco = input("Informe seu endereço (TIPO, NUMERO, BAIRRO, CIDADE/ESTADO):")
-    cpf = input("Informe seu CPF:")
 
     usuario.append({"nome": nome, "cpf": cpf, "data_nascimento": data_nascimento, "endereco": endereco})
     print("Usuário cadastrado com sucesso!")
@@ -125,7 +124,7 @@ def main():
             saldo, extrato = sacar(saldo, extrato, limite, numero_saques, LIMITE_SAQUE)
 
         elif opcao == "e":
-            extrato(saldo, extrato)
+            mostrar_extrato(saldo, extrato)
 
         elif opcao == "u":
             usuario = novo_usuario(usuario)
